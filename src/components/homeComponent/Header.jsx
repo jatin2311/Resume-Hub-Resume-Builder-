@@ -1,4 +1,4 @@
-import Logo from "../assets/logo.png";
+import Logo from "../../assets/logo.png";
 import { FaBars } from "react-icons/fa";
 import { MdClose } from "react-icons/md";
 import { useState } from "react";
