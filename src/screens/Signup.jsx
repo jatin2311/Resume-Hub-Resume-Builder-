@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Image from "../assets/anime.jpg";
 import Footer from "../components/homeComponent/Footer";
 
@@ -8,7 +8,7 @@ const Signup = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [confPassError, setConfPassError] = useState("");
   const [formError, setFormError] = useState({});
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  // const [isSubmitted, setIsSubmitted] = useState(false);
 
   const checkValidation = (e) => {
     const confPass = e.target.value;
@@ -29,13 +29,13 @@ const Signup = () => {
     });
   };
 
-  useEffect(() => {
-    if (Object.keys(formError).length === 0 && isSubmitted) {
-      console.log(formValues);
-      setFormValues(initialValue);
-      setConfirmPassword("");
-    }
-  }, [formError]);
+  // useEffect(() => {
+  //   if (Object.keys(formError).length === 0 && isSubmitted) {
+  //     console.log(formValues);
+  //     setFormValues(initialValue);
+  //     setConfirmPassword("");
+  //   }
+  // }, [formError]);
 
   const validate = (values) => {
     const errors = {};
@@ -61,7 +61,11 @@ const Signup = () => {
   const handleInput = (e) => {
     e.preventDefault();
     setFormError(validate(formValues));
-    setIsSubmitted(true);
+
+    //hande Form Validation submission
+    if (Object.keys(formError).length === 0) {
+      console.log(formValues);
+    }
   };
 
   return (
@@ -74,7 +78,7 @@ const Signup = () => {
             </h2>
             {/* (Object.keys(formError).length == 0 && isSubmitted) */}
             <form action="" onSubmit={handleInput}>
-              <div className="mt-8 w-full flex flex-col sm:flex-row  items-start sm:items-center py-2 sm:py-4 ">
+              <div className="mt-8 w-full flex flex-col sm:flex-row  items-start sm:items-center py-2 sm:py-4  justify-between">
                 <label className="font-semibold text-white/90 py-2 ">
                   User Name <abbr title="required">* </abbr>
                 </label>
@@ -86,7 +90,7 @@ const Signup = () => {
                     name="userName"
                     id=""
                     placeholder="Enter Username"
-                    className="w-[280px] sm:w-[320px] bg-grey-lighter text-grey-darker border border-gray-400  rounded-lg h-10 px-4 ml-0 sm:ml-28"
+                    className="w-[280px] sm:w-[320px] bg-grey-lighter text-grey-darker border border-gray-400  rounded-lg h-10 px-4 ml-0 sm:ml-28 self-end"
                   />
                   <p className="text-red-900 text-base font-semibold text-center">
                     {formError.userName}
