@@ -14,7 +14,7 @@ const Header = () => {
         Home
       </Link>
       <Link
-        to="/templates"
+        to="/Templates"
         className=" text-base font-medium text-gray-500 cursor-pointer hover:text-gray-900 hover:underline hover:font-bold hover:uppercase"
       >
         Templates

@@ -3,6 +3,7 @@ import HomeScreen from "./screens/HomeScreen";
 import Header from "./components/homeComponent/Header";
 import Signup from "./screens/Signup";
 import Signin from "./screens/Signin";
+import Templates from "./screens/Templates";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<HomeScreen />} />
+        <Route path="/Templates" element={<Templates />} />
         <Route path="/SignIn" element={<Signin />} />
         <Route path="/SignUp" element={<Signup />} />
       </Routes>

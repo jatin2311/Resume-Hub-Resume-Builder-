@@ -74,9 +74,8 @@ const Signup = () => {
         <div className="flex flex-col sm:flex-row  h-auto sm:h-[550px] bg-black/10 w-auto sm:w-[930px] rounded-lg ">
           <div className="flex flex-col  w-full sm:w-auto  px-12 sm:px-12 py-1 sm:py-4 h-auto sm:h-[450px] ">
             <h2 className="w-full p-4 text-white font-semibold text-4xl sm:text-5xl   text-center">
-              SignUp
+              Sign Up
             </h2>
-            {/* (Object.keys(formError).length == 0 && isSubmitted) */}
             <form action="" onSubmit={handleInput}>
               <div className="mt-8 w-full flex flex-col sm:flex-row  items-start sm:items-center py-2 sm:py-4  justify-between">
                 <label className="font-semibold text-white/90 py-2 ">

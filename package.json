@@ -13,7 +13,8 @@
     "react-router-dom": "^6.6.1",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4",
-    "yarn": "^1.22.19"
+    "yarn": "^1.22.19",
+    "zustand": "^4.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
