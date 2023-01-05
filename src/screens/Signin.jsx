@@ -1,8 +1,13 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router";
 import Image from "../assets/anime.jpg";
 import Footer from "../components/homeComponent/Footer";
+import { signin } from "../services/authHandler";
+import { useUserStore } from "../store/user.store";
 
 function Signin() {
+  const addUser = useUserStore((state) => state.addUser);
+  const nav = useNavigate();
   const initialValue = { email: "", password: "" };
   const [formValues, setFormValues] = useState(initialValue);
   const [formError, setFormError] = useState({});
@@ -29,13 +34,23 @@ function Signin() {
     return errors;
   };
 
-  const handleInput = (e) => {
+  const handleInput = async (e) => {
     e.preventDefault();
     setFormError(validate(formValues));
 
     //hande Form Validation submission
     if (Object.keys(formError).length === 0) {
-      console.log(formValues);
+      // console.log(formValues.email, formValues.password);
+      // console.log(formValues);
+      const result = await signin({
+        email: formValues.email,
+        password: formValues.password,
+      });
+      console.log(result.data);
+      if (result) {
+        addUser({ email: result.data.email, _id: result.data._id });
+        nav("/");
+      }
     }
   };
 

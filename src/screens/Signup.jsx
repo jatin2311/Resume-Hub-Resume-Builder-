@@ -33,14 +33,6 @@ const Signup = () => {
     });
   };
 
-  // useEffect(() => {
-  //   if (Object.keys(formError).length === 0 && isSubmitted) {
-  //     console.log(formValues);
-  //     setFormValues(initialValue);
-  //     setConfirmPassword("");
-  //   }
-  // }, [formError]);
-
   const validate = (values) => {
     const errors = {};
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;

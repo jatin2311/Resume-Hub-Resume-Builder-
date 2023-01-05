@@ -4,6 +4,7 @@ const userStore = (set) => ({
   user: {},
 
   addUser: (d) => {
+    console.log(d);
     set((state) => ({
       user: d,
     }));

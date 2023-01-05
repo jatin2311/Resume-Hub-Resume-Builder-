@@ -16,3 +16,19 @@ export const signup = async (d) => {
     return false;
   }
 };
+
+export const signin = async (d) => {
+  const { email, password } = d;
+  // console.log(email, password);
+  try {
+    const response = await axios.post("/signin", {
+      email: email,
+      password: password,
+    });
+    toast.success(response.data.msg);
+    return response.data;
+  } catch (error) {
+    toast.error(error.response.data.msg);
+    return false;
+  }
+};
