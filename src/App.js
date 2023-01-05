@@ -4,10 +4,12 @@ import Header from "./components/homeComponent/Header";
 import Signup from "./screens/Signup";
 import Signin from "./screens/Signin";
 import Templates from "./screens/Templates";
-
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 function App() {
   return (
     <BrowserRouter>
+      <ToastContainer />
       <Header />
       <Routes>
         <Route path="/" element={<HomeScreen />} />

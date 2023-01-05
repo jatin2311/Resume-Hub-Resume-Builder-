@@ -1,8 +1,12 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router";
+import { toast } from "react-toastify";
 import Image from "../assets/anime.jpg";
 import Footer from "../components/homeComponent/Footer";
+import { signup } from "../services/authHandler";
 
 const Signup = () => {
+  const nav = useNavigate();
   const initialValue = { userName: "", email: "", password: "" };
   const [formValues, setFormValues] = useState(initialValue);
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -58,13 +62,22 @@ const Signup = () => {
     return errors;
   };
 
-  const handleInput = (e) => {
+  const handleInput = async (e) => {
     e.preventDefault();
     setFormError(validate(formValues));
 
     //hande Form Validation submission
     if (Object.keys(formError).length === 0) {
-      console.log(formValues);
+      // console.log(formValues);
+      const result = await signup({
+        email: formValues.email,
+        password: formValues.password,
+      });
+      console.log(result);
+      if (result) {
+        toast.success("Now login");
+        nav("/signin");
+      }
     }
   };
 
