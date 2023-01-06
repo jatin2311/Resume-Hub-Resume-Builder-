@@ -4,6 +4,7 @@ import Header from "./components/homeComponent/Header";
 import Signup from "./screens/Signup";
 import Signin from "./screens/Signin";
 import Templates from "./screens/Templates";
+import BuildResumeForm from "./screens/BuildResumeForm";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 function App() {
@@ -14,6 +15,10 @@ function App() {
       <Routes>
         <Route path="/" element={<HomeScreen />} />
         <Route path="/Templates" element={<Templates />} />
+        <Route
+          path="/Templates/buildResumeForm"
+          element={<BuildResumeForm />}
+        />
         <Route path="/SignIn" element={<Signin />} />
         <Route path="/SignUp" element={<Signup />} />
       </Routes>

@@ -1,5 +1,6 @@
 import React from "react";
 import Intro from "../../assets/intro.jpg";
+import { Link } from "react-router-dom";
 
 const Main = () => {
   return (
@@ -15,9 +16,11 @@ const Main = () => {
             and customize them within a few clicks.
           </p>
           <div className="flex justify-center items-center">
-            <button className="mt-4 xl:mt-10 w-64  h-12 rounded-lg mx-auto   mb-4 bg-indigo-600 px-4 py-2 font-semibold text-white/80 text-xl hover:underline hover:uppercase hover:text-white">
-              Build my resume
-            </button>
+            <Link to="/Templates">
+              <button className="mt-4 xl:mt-10 w-64  h-12 rounded-lg mx-auto   mb-4 bg-indigo-600 px-4 py-2 font-semibold text-white/80 text-xl hover:underline hover:uppercase hover:text-white">
+                View templates
+              </button>
+            </Link>
           </div>
         </div>
         <div className="mt-8 md:mt-0 w-[350px] sm:w-[100rem] xl:w-[700px] mx-2 sm:mx-20  ">
