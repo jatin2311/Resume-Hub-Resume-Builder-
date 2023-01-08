@@ -14,19 +14,19 @@ const Header = () => {
         Home
       </Link>
       <Link
-        to="/Templates"
+        to="/templates"
         className=" text-base font-medium text-gray-500 cursor-pointer hover:text-gray-900 hover:underline hover:font-bold hover:uppercase"
       >
         Templates
       </Link>
       <Link
-        to="/SignIn"
+        to="/signIn"
         className="ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700 cursor-pointer hover:uppercase"
       >
         Sign in
       </Link>
       <Link
-        to="/SignUp"
+        to="/signUp"
         className=" inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700 cursor-pointer hover:uppercase"
       >
         Sign up

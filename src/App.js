@@ -4,9 +4,11 @@ import Header from "./components/homeComponent/Header";
 import Signup from "./screens/Signup";
 import Signin from "./screens/Signin";
 import Templates from "./screens/Templates";
+import Temp from "./screens/template/Template2";
 import BuildResumeForm from "./screens/BuildResumeForm";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
 function App() {
   return (
     <BrowserRouter>
@@ -14,12 +16,13 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<HomeScreen />} />
-        <Route path="/Templates" element={<Templates />} />
+        <Route path="/templates" element={<Templates />} />
+        <Route path="/templates/temp2" element={<Temp />} />
         <Route
           path="/Templates/buildResumeForm"
           element={<BuildResumeForm />}
         />
-        <Route path="/SignIn" element={<Signin />} />
+        <Route path="/signIn" element={<Signin />} />
         <Route path="/SignUp" element={<Signup />} />
       </Routes>
     </BrowserRouter>

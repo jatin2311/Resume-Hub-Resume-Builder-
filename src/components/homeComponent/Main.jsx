@@ -16,7 +16,7 @@ const Main = () => {
             and customize them within a few clicks.
           </p>
           <div className="flex justify-center items-center">
-            <Link to="/Templates">
+            <Link to="/templates">
               <button className="mt-4 xl:mt-10 w-64  h-12 rounded-lg mx-auto   mb-4 bg-indigo-600 px-4 py-2 font-semibold text-white/80 text-xl hover:underline hover:uppercase hover:text-white">
                 View templates
               </button>
