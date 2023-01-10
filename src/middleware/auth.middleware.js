@@ -51,12 +51,13 @@ export const AuthChecker = (props) => {
           <h1 className="text-black">Unauthorise Access not allowed</h1>
           <div className="min-h-[300px] bg-[#e7e5e4] w-72 mx-auto flex justify-center items-center animate-bounce ">
             <div
-              className="animate-bounce  h-52 bg-[#b4161b] w-52 flex items-center justify-center rounded-full"
+              className="animate-bounce  h-52 bg-[#b4161b] w-52 flex items-center justify-center rounded-full text-center"
               onClick={() => {
                 nav("/", { replace: true });
               }}
             >
-              Click me to go home
+              Sign In required <br />
+              click me to go home
             </div>
           </div>
         </div>

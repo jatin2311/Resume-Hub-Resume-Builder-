@@ -3,38 +3,95 @@ import { FaBars } from "react-icons/fa";
 import { MdClose } from "react-icons/md";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useUserStore } from "../../store/user.store";
 
 const Header = () => {
-  const Menu = () => (
+  const user = useUserStore((state) => state.user);
+  const logOutUser = useUserStore((state) => state.logOutUser);
+  const [toggleMenu, settoggleMenu] = useState(false);
+
+  const LoggedInMenu = () => (
     <>
       <Link
         to="/"
-        className=" text-base font-medium text-gray-500 hover:text-gray-900 cursor-pointer hover:underline hover:uppercase hover:font-bold"
+        className=" text-base font-medium text-gray-500 transition ease-in-out delay-150 hover:scale-110 hover:text-black duration-300"
+        onClick={() => {
+          settoggleMenu(false);
+        }}
       >
         Home
       </Link>
       <Link
         to="/templates"
-        className=" text-base font-medium text-gray-500 cursor-pointer hover:text-gray-900 hover:underline hover:font-bold hover:uppercase"
+        className=" text-base font-medium text-gray-500 cursor-pointer transition ease-in-out delay-150 hover:scale-110 hover:text-black duration-300"
+        onClick={() => {
+          settoggleMenu(false);
+        }}
       >
         Templates
       </Link>
       <Link
         to="/signIn"
-        className="ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700 cursor-pointer hover:uppercase"
+        className="ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm cursor-pointer transition ease-in-out delay-150  hover:scale-110 hover:bg-indigo-500 duration-300"
+        onClick={() => {
+          settoggleMenu(false);
+        }}
       >
         Sign in
       </Link>
       <Link
         to="/signUp"
-        className=" inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700 cursor-pointer hover:uppercase"
+        className=" inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm transition ease-in-out delay-150  hover:scale-110 hover:bg-indigo-500 duration-300"
+        onClick={() => {
+          settoggleMenu(false);
+        }}
       >
         Sign up
       </Link>
     </>
   );
+  const Menu = () => (
+    <>
+      <Link
+        to="/"
+        className=" text-base font-medium text-gray-500 cursor-pointer transition ease-in-out delay-150 hover:scale-110 hover:text-black duration-300"
+        onClick={() => {
+          settoggleMenu(false);
+        }}
+      >
+        Home
+      </Link>
+      <Link
+        to="/templates"
+        className=" text-base font-medium text-gray-500 cursor-pointer transition ease-in-out delay-150 hover:scale-110 hover:text-black duration-300"
+        onClick={() => {
+          settoggleMenu(false);
+        }}
+      >
+        Templates
+      </Link>
 
-  const [toggleMenu, settoggleMenu] = useState(false);
+      <div
+        className="text-base font-medium text-gray-500 cursor-pointer transition ease-in-out delay-150 hover:scale-110 hover:text-black duration-300"
+        onClick={() => {
+          settoggleMenu(false);
+        }}
+      >
+        {user.email}
+      </div>
+
+      <Link
+        to="/"
+        className=" inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-[#EF5354] px-4 py-2 text-base font-medium text-white shadow-sm transition ease-in-out delay-150  hover:scale-110 hover:bg-[#B4161B] duration-300"
+        onClick={() => {
+          logOutUser();
+          settoggleMenu(false);
+        }}
+      >
+        Logout
+      </Link>
+    </>
+  );
 
   return (
     <>
@@ -45,7 +102,11 @@ const Header = () => {
           </Link>
         </div>
         <div className="hidden sm:flex gap-10 justify-center items-center w-auto h-auto mx-auto px-4 ">
-          <Menu className=" " />
+          {Object.keys(user).length < 1 ? (
+            <LoggedInMenu className=" " />
+          ) : (
+            <Menu />
+          )}
         </div>
         <div className="md:hidden">
           {toggleMenu ? (
@@ -65,7 +126,11 @@ const Header = () => {
           )}
           {toggleMenu && (
             <div className="bg-stone-300 rounded-lg flex flex-col w-auto h-auto justify-end p-6  absolute right-8 top-20 mt-4 min-w-min items-end gap-y-6">
-              <Menu />
+              {Object.keys(user).length < 1 ? (
+                <LoggedInMenu className=" " />
+              ) : (
+                <Menu />
+              )}
             </div>
           )}
         </div>
