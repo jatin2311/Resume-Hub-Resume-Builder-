@@ -1,6 +1,7 @@
 import create from "zustand";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { persist } from "zustand/middleware";
 
 const userStore = (set) => ({
   user: {},
@@ -24,4 +25,8 @@ const userStore = (set) => ({
   },
 });
 
-export const useUserStore = create(userStore);
+export const useUserStore = create(
+  persist(userStore, {
+    name: "userDataStore",
+  })
+);

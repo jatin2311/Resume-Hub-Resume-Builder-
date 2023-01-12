@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import { toast } from "react-toastify";
 import Footer from "../components/homeComponent/Footer";
+import { useUserStore } from "../store/user.store";
 
 const BuildResumeForm = () => {
   const formdata = {
@@ -44,11 +46,35 @@ const BuildResumeForm = () => {
     expComp3About: "",
   };
   const [formDataState, setformDataState] = useState(formdata);
-
+  const user = useUserStore((state) => state.user);
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formDataState);
-    e.currentTarget.reset();
+    // e.currentTarget.reset();
+    savedSubmittedFormData();
+  };
+
+  const savedSubmittedFormData = () => {
+    if (!user) {
+      return toast.error("Log in required");
+    }
+    const data = localStorage.getItem(user.email);
+    console.log(user);
+    try {
+      if (data === null) {
+        localStorage.setItem(user.email, JSON.stringify([formDataState]));
+      } else {
+        // console.log("elese executed");
+        localStorage.setItem(
+          user.email,
+          JSON.stringify([formDataState, ...JSON.parse(data)])
+        );
+        toast.success("Form data saved successfully");
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error(error.message || "unable to save data");
+    }
   };
 
   return (

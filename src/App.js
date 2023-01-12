@@ -7,6 +7,7 @@ import Templates from "./screens/Templates";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthChecker } from "./middleware/auth.middleware";
+import SavedDataList from "./screens/SavedDataList";
 
 function App() {
   return (
@@ -23,6 +24,8 @@ function App() {
           path="/Templates/buildResumeForm"
           element={<BuildResumeForm />}
         /> */}
+
+        <Route path="/data" element={<SavedDataList />} />
         <Route path="/signIn" element={<Signin />} />
         <Route path="/SignUp" element={<Signup />} />
       </Routes>
