@@ -7,7 +7,7 @@ import Templates from "./screens/Templates";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthChecker } from "./middleware/auth.middleware";
-import SavedDataList from "./screens/SavedDataList";
+// import SavedDataList from "./screens/SavedDataList";
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<HomeScreen />} />
-        <Route path="/:name" element={<AuthChecker />} />
+        <Route path="/auth/:name" element={<AuthChecker />} />
 
         <Route path="/templates" element={<Templates />} />
         {/* <Route path="/templates/temp2" element={<Temp />} /> */}
@@ -25,7 +25,7 @@ function App() {
           element={<BuildResumeForm />}
         /> */}
 
-        <Route path="/data" element={<SavedDataList />} />
+        {/* <Route path="/data" element={<SavedDataList />} /> */}
         <Route path="/signIn" element={<Signin />} />
         <Route path="/SignUp" element={<Signup />} />
       </Routes>

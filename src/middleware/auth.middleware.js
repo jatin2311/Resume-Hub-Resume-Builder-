@@ -25,6 +25,7 @@ export const AuthChecker = (props) => {
       setData(await authcheck());
     })();
     console.log(location.pathname);
+
     // eslint-disable-next-line
   }, []);
 
@@ -67,13 +68,11 @@ export const AuthChecker = (props) => {
   }
 
   switch (location.pathname) {
-    case "/home":
-      return <HomeScreen />;
-    case "/buildResumeForm":
+    case "/auth/buildResumeForm":
       return <BuildResumeForm />;
-    case "/data":
+    case "/auth/data":
       return <SavedDataList />;
     default:
-      break;
+      return <HomeScreen />;
   }
 };

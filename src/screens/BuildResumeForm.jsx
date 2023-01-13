@@ -4,6 +4,7 @@ import Footer from "../components/homeComponent/Footer";
 import { useUserStore } from "../store/user.store";
 
 const BuildResumeForm = () => {
+  const date = new Date();
   const formdata = {
     name: "",
     designation: "",
@@ -44,6 +45,10 @@ const BuildResumeForm = () => {
     expComp3Dur: "",
     expComp33Dur: "",
     expComp3About: "",
+    timestamp: date
+      .toLocaleString("en-IN", { hour12: true })
+      .toString()
+      .replace("GMT+0530 (India Standard Time)", ""),
   };
   const [formDataState, setformDataState] = useState(formdata);
   const user = useUserStore((state) => state.user);

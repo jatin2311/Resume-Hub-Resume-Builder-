@@ -28,5 +28,6 @@ const userStore = (set) => ({
 export const useUserStore = create(
   persist(userStore, {
     name: "userDataStore",
+    getStorage: () => sessionStorage,
   })
 );
