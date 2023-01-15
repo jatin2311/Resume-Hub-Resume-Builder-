@@ -17,8 +17,8 @@ const SavedDataList = () => {
   }, []);
 
   return (
-    <div className="min-h-screen min-w-full flex justify-start items-center flex-col sm:p-20 gap-10">
-      <h1 className="text-4xl text-[#758283] font-serif ">
+    <div className="min-h-screen min-w-full flex justify-start items-center flex-col sm:p-20 gap-10 ">
+      <h1 className="text-4xl text-[#758283] font-serif transition-all ease-linear delay-150 duration-100">
         Previous Saved Data
       </h1>
       <div className="sm:min-h-[600px] sm:min-w-[550px] min-h-screen min-w-full bg-gradient-to-r from-[#e7e5e4] to-[#758283] rounded-2xl shadow-2xl text-[#ffffff] font-serif p-1">

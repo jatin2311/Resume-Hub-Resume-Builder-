@@ -9,7 +9,9 @@ import { FaDotCircle } from "react-icons/fa";
 import { ImAirplane } from "react-icons/im";
 import { FcGraduationCap } from "react-icons/fc";
 import { SlBadge } from "react-icons/sl";
-export const Template3 = () => {
+export const Template3 = (props) => {
+  const data = props.data;
+
   return (
     <div className="bg-[rgb(204,204,204)]  w-[21cm] h-[29.7cm]">
       <div className="bg-white  mx-0 my-auto shadow-2xl w-[21cm] absolute ">
@@ -19,9 +21,9 @@ export const Template3 = () => {
           <img src={require("../../assets/man.png")} alt="" className="" />
           {/* Name and designation start*/}
           <div className="mt-7">
-            <h3 className="text-[30px]  min-w-fit">KIAN GRAHAM</h3>
+            <h3 className="text-[30px]  min-w-fit">{data.name}</h3>
             <h4 className="text-[18px] font-semibold tracking-wider ">
-              FLIGHT ATTENDANT
+              {data.designation}
             </h4>
           </div>
           {/* Name and designation end*/}
@@ -30,19 +32,20 @@ export const Template3 = () => {
           <div className="mt-10 gap-1 flex flex-col">
             {/* link-start */}
             <div className="flex items-center gap-1 min-w-fit font-light text-sm">
-              <AiFillLinkedin /> linkedin.com/in/name
+              <AiFillLinkedin /> {data.linkedin}
             </div>
             <div className="flex items-center gap-1 min-w-fit font-light text-sm">
-              <AiFillMail /> hello@reallygreatsite.com
+              <AiFillMail /> {data.email}
             </div>
             <div className="flex items-center gap-1 min-w-fit font-light text-sm">
-              <AiOutlineUser /> +123-456-7890
+              <AiOutlineUser /> {data.contactNumber}
             </div>
             <div className="flex items-center gap-1 min-w-fit font-light text-sm">
-              <AiFillFire /> mfaizk.me
+              <AiFillFire />
+              {data.github}
             </div>
             <div className="flex items-center gap-1 min-w-fit font-light text-sm">
-              <FaDotCircle /> click here for my portfolio
+              <FaDotCircle /> {data.website}
             </div>
             {/* link1-end */}
           </div>
@@ -53,9 +56,12 @@ export const Template3 = () => {
               RELEVANT SKILLS
             </h3>
             <div className="ml-3">
-              <li>First Aid & Emergency Care</li>
-              <li>Fluency in French</li>
-              <li>Quality Customer Service</li>
+              <li>{data.skill1}</li>
+              <li>{data.skill2}</li>
+              <li>{data.skill3}</li>
+              <li>{data.skill4}</li>
+              <li>{data.skill5}</li>
+              <li>{data.skill6}</li>
             </div>
           </div>
         </div>
@@ -68,7 +74,7 @@ export const Template3 = () => {
         <div className=" absolute w-[60%] left-[40%] bg-white h-[29.7cm]  z-0 text-[#1d1d1d]">
           {/* Heading-start */}
           <div className="w-[90%] bg-[#dfeffa] p-3 float-right mt-9 font-semibold tracking-wide text-[#1d1d1e]">
-            WORK EXPERIENCE
+            PROJECTS
           </div>
           {/* Heading-end */}
 
@@ -76,82 +82,112 @@ export const Template3 = () => {
           <div className=" top-28 left-12  absolute w-40 flex min-w-fit gap-10">
             <ImAirplane className="left-4" size={35} color="#2978ab" />
             <div>
-              <h2 className="font-bold text-[#1d1d1d]">Flight Attenddant</h2>
-              <h3>Company name</h3>
+              <h2 className="font-bold text-[#1d1d1d]">{data.projTitle1}</h2>
             </div>
           </div>
           {/* sub-heading-with-icons-end */}
-          {/* Experience-duration-start */}
-          <h3 className="min-w-fit  top-44 left-[125px] absolute">
-            March 2022 to August 2025
-          </h3>
-          {/* Experience-duration-end */}
+
           {/* list-of-abouts-start */}
-          <li className=" absolute w-[300px] top-52 left-[140px] ">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi,
-            nulla eaque? Adipisci nisi ad natus repudiandae culpa nulla minus
-            vero illum similique
+          <li className=" absolute w-[300px] top-36 left-[140px] ">
+            {data.projTitle1About}
           </li>
-          <li className=" absolute w-[300px] top-[310px] left-[140px] ">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi,
-            nulla eaque? Adipisci nisi ad natus repudiandae culpa nulla minus
-            vero illum similique
-          </li>
-          <li className=" absolute w-[300px] top-[410px] left-[140px] ">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi,
-            nulla eaque? Adipisci nisi ad natus repudiandae culpa nulla minus
-            vero illum similique
-          </li>
+
           {/* list-of-abouts-end */}
+
+          {/* sub-heading-with-icons-start */}
+          <div className=" absolute bottom-[825px] left-12  w-40 flex min-w-fit gap-10">
+            <ImAirplane className="left-4" size={35} color="#2978ab" />
+            <div>
+              <h2 className="font-bold text-[#1d1d1d]">{data.projTitle2}</h2>
+            </div>
+          </div>
+          {/* sub-heading-with-icons-end */}
+
+          {/* list-of-abouts-start */}
+          <li className=" absolute w-[300px] top-72 left-[140px] ">
+            {data.projTitle2About}
+          </li>
+
+          {/* list-of-abouts-end */}
+          {/* sub-heading-with-icons-start */}
+          <div className=" absolute bottom-[765px] left-12  w-40 flex min-w-fit gap-10">
+            <ImAirplane className="left-4" size={35} color="#2978ab" />
+            <div>
+              <h2 className="font-bold text-[#1d1d1d]">{data.projTitle3}</h2>
+            </div>
+          </div>
+          {/* sub-heading-with-icons-end */}
+
+          {/* list-of-abouts-start */}
+          <li className=" absolute w-[300px] top-[350px] left-[140px] ">
+            {data.projTitle3About}
+          </li>
+
+          {/* list-of-abouts-end */}
+
           {/* Heading-start */}
           <div className="w-[90%] bg-[#dfeffa] p-3 float-right mt-9 font-semibold tracking-wide text-[#1d1d1e] absolute top-[500px] right-0">
             EDUCATION HISTORY
           </div>
           {/* Heading-end */}
           {/* sub-heading-with-icons-start */}
-          <div className=" top-[620px] left-12  absolute w-40 flex min-w-fit gap-10">
+          <div className=" top-[600px] left-12  absolute w-40 flex min-w-fit gap-10">
             <FcGraduationCap className="left-4 " size={35} color="#2978ab" />
             <div>
-              <h2 className="font-bold text-[#1d1d1d]">
-                Bachelor of Science in Tourisme
-              </h2>
-              <h3>Institution: De Loureigh University </h3>
-              <h3>Year of Graduation: 2020</h3>
-              <li className="ml-4">Cum Launde</li>
-              <li className="ml-4">Best Thesis</li>
-              <li className="ml-4">President De Loureigh Debate club</li>
+              <h2 className="font-bold text-[#1d1d1d]">{data.ugName}</h2>
+              <h3>{data.ug} </h3>
+            </div>
+          </div>
+          {/* sub-heading-with-icons-end */}
+
+          {/* sub-heading-with-icons-start */}
+          <div className=" top-[660px] left-12  absolute w-40 flex min-w-fit gap-10">
+            <FcGraduationCap className="left-4 " size={35} color="#2978ab" />
+            <div>
+              <h2 className="font-bold text-[#1d1d1d]">{data.cg1Name}</h2>
+              <h3>{data.cg1} </h3>
+            </div>
+          </div>
+          {/* sub-heading-with-icons-end */}
+
+          {/* sub-heading-with-icons-start */}
+          <div className=" top-[720px] left-12  absolute w-40 flex min-w-fit gap-10">
+            <FcGraduationCap className="left-4 " size={35} color="#2978ab" />
+            <div>
+              <h2 className="font-bold text-[#1d1d1d]">{data.cg2Name}</h2>
+              <h3>{data.cg2} </h3>
             </div>
           </div>
           {/* sub-heading-with-icons-end */}
 
           {/* Heading-start */}
           <div className="w-[90%] bg-[#dfeffa] p-3 float-right mt-9 font-semibold tracking-wide text-[#1d1d1e] absolute top-[760px] right-0">
-            CERTIFICATIONS
+            RELEVANT EXPERIENCE/INTERNSHIP
           </div>
           {/* Heading-end */}
 
           {/* certificate-list-with-icons-start */}
           {/* sub-heading-with-icons-start */}
-          <div className=" top-[880px] left-12  absolute w-40 flex min-w-fit gap-10">
+          <div className=" top-[860px] left-12  absolute w-40 flex min-w-fit gap-10">
             <SlBadge className="left-4" size={35} color="#2978ab" />
             <div>
-              <h2 className="font-bold text-[#1d1d1d]">
-                Flight Safety Traning
-              </h2>
-              <h3>Institute National Aviation Association</h3>
-              <h3>2020</h3>
+              <h2 className="font-bold text-[#1d1d1d]">{data.expComp1}</h2>
+              <h3>{data.expComp1About}</h3>
+              <h3>
+                {data.expComp1Dur}-{data.expComp11Dur}
+              </h3>
             </div>
           </div>
           {/* sub-heading-with-icons-end */}
           {/* sub-heading-with-icons-start */}
-          <div className=" top-[980px] left-12  absolute w-40 flex min-w-fit gap-10">
+          <div className=" top-[990px] left-12  absolute w-40 flex min-w-fit gap-10">
             <SlBadge className="left-4" size={35} color="#2978ab" />
             <div>
-              <h2 className="font-bold text-[#1d1d1d]">
-                Flight Safety Traning
-              </h2>
-              <h3>Institute International Medical Agency</h3>
-              <h3>2020</h3>
+              <h2 className="font-bold text-[#1d1d1d]">{data.expComp2}</h2>
+              <h3>{data.expComp2About}</h3>
+              <h3>
+                {data.expComp2Dur}-{data.expComp22Dur}
+              </h3>
             </div>
           </div>
           {/* sub-heading-with-icons-end */}
