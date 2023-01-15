@@ -79,7 +79,21 @@ const Header = () => {
       >
         {user.email}
       </div>
-
+      {user.email ? (
+        <>
+          <Link
+            to="/auth/data"
+            className=" text-base font-medium text-gray-500 cursor-pointer transition ease-in-out delay-150 hover:scale-110 hover:text-black duration-300"
+            onClick={() => {
+              settoggleMenu(false);
+            }}
+          >
+            Saved Data
+          </Link>
+        </>
+      ) : (
+        <></>
+      )}
       <Link
         to="/"
         className=" inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-[#EF5354] px-4 py-2 text-base font-medium text-white shadow-sm transition ease-in-out delay-150  hover:scale-110 hover:bg-[#B4161B] duration-300"

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router";
 import BuildResumeForm from "../screens/BuildResumeForm";
 import HomeScreen from "../screens/HomeScreen";
+import ResumePreviewScreen from "../screens/ResumePreviewScreen";
 import SavedDataList from "../screens/SavedDataList";
 
 const authcheck = async () => {
@@ -72,6 +73,8 @@ export const AuthChecker = (props) => {
       return <BuildResumeForm />;
     case "/auth/data":
       return <SavedDataList />;
+    case "/auth/build":
+      return <ResumePreviewScreen />;
     default:
       return <HomeScreen />;
   }

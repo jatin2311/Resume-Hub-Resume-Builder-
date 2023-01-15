@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router";
 import { toast } from "react-toastify";
 import { useUserStore } from "../store/user.store";
 
 const SavedDataList = () => {
   const user = useUserStore((state) => state.user);
   const [data, setData] = useState([]);
+  const nav = useNavigate();
   useEffect(() => {
     const data = localStorage.getItem(user.email);
     if (!data) {
@@ -28,15 +30,34 @@ const SavedDataList = () => {
                 key={i}
               >
                 <details className="flex flex-grow ">
-                  <summary>Name: {e.name} </summary>
-                  <p className="mt-1">Designation: {e.designation}</p>
-                  <p>About: {e.about}</p>
-                  <p>ContactNumber: {e.contactNumber}</p>
-                  <p>Email: {e.email}</p>
-                  <p>Website: {e.website}</p>
+                  <summary>
+                    <span className="text-[#242B2E]">Name: </span> {e.name}{" "}
+                  </summary>
+                  <p className="mt-1">
+                    <span className="text-[#242B2E]">Designation:</span>{" "}
+                    {e.designation}
+                  </p>
+                  <p>
+                    <span className="text-[#242B2E]">About: </span> {e.about}
+                  </p>
+                  <p>
+                    <span className="text-[#242B2E]">ContactNumber:</span>{" "}
+                    {e.contactNumber}
+                  </p>
+                  <p>
+                    <span className="text-[#242B2E]">Email:</span> {e.email}
+                  </p>
+                  <p>
+                    <span className="text-[#242B2E]">Website:</span> {e.website}
+                  </p>
                 </details>
                 <div className="self-start  p-1 px-3">{e.timestamp}</div>
-                <button className="transition-all ease-out delay-100 bg-black p-1 px-3 rounded-md hover:bg-[#A77B06] duration-200 self-start">
+                <button
+                  className="transition-all ease-out delay-100 bg-black p-1 px-3 rounded-md hover:bg-[#A77B06] duration-200 self-start"
+                  onClick={() => {
+                    nav("/auth/build", { state: { data: e } });
+                  }}
+                >
                   Select
                 </button>
               </div>
