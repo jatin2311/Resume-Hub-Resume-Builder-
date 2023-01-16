@@ -110,7 +110,7 @@ export const Template3 = (props) => {
 
           {/* list-of-abouts-end */}
           {/* sub-heading-with-icons-start */}
-          <div className=" absolute bottom-[765px] left-12  w-40 flex min-w-fit gap-10">
+          <div className=" absolute bottom-[695px] left-12  w-40 flex min-w-fit gap-10">
             <ImAirplane className="left-4" size={35} color="#2978ab" />
             <div>
               <h2 className="font-bold text-[#1d1d1d]">{data.projTitle3}</h2>
@@ -119,7 +119,7 @@ export const Template3 = (props) => {
           {/* sub-heading-with-icons-end */}
 
           {/* list-of-abouts-start */}
-          <li className=" absolute w-[300px] top-[350px] left-[140px] ">
+          <li className=" absolute w-[300px] top-[420px] left-[140px] ">
             {data.projTitle3About}
           </li>
 
