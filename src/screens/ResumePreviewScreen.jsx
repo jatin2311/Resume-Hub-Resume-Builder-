@@ -28,6 +28,43 @@ const ResumePreviewScreen = () => {
     }
   };
 
+  if (window.innerWidth < 768) {
+    return (
+      <>
+        <div className="min-w-full h-[50px] bg-gradient-to-r from-[#e7e5e4] text-center text-gray-800 font-serif">
+          <span className="text-[#636365] font-bold">Note{"  "}:</span>
+          Preview feature only work when website open in desktop
+        </div>
+        <div className="border flex flex-row justify-center items-center gap-4 p-10 flex-wrap">
+          {/* Card-start */}
+          <div className=" p-4 flex flex-col items-center justify-center w- w-[200px] h-[300px] gap-2">
+            <img
+              src={require("../assets/imgRes/2.png")}
+              alt=""
+              className="h-[200px] shadow-2xl"
+            />
+            <button className="border h-[50px] w-[150px] bg-green-500 uppercase text-white font-serif rounded">
+              download
+            </button>
+          </div>
+          {/* Card-end */}
+          {/* Card-start */}
+          <div className="border p-4 flex flex-col items-center justify-center w- w-[200px] h-[300px] gap-2">
+            <img
+              src={require("../assets/imgRes/4.png")}
+              alt=""
+              className="h-[200px] shadow-2xl"
+            />
+            <button className="border h-[50px] w-[150px] bg-green-500 uppercase text-white font-serif rounded">
+              download
+            </button>
+          </div>
+          {/* Card-end */}
+        </div>
+      </>
+    );
+  }
+
   return (
     <div className="flex flex-col min-h-screen min-w-full bg-[#758283] justify-center items-center gap-10 p-3">
       <div className="self-center">{selectedResumeComponent[index]}</div>
