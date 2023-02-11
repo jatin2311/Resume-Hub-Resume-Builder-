@@ -25,7 +25,6 @@ export const AuthChecker = (props) => {
     (async () => {
       setData(await authcheck());
     })();
-    console.log(location.pathname);
 
     // eslint-disable-next-line
   }, []);
