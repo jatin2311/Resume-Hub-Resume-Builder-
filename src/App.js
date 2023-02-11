@@ -8,8 +8,13 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthChecker } from "./middleware/auth.middleware";
 // import SavedDataList from "./screens/SavedDataList";
-
+import axios from "axios";
+import { useEffect } from "react";
 function App() {
+  useEffect(() => {
+    axios.defaults.baseURL = "https://resumeapi.up.railway.app/api";
+  }, []);
+
   return (
     <BrowserRouter>
       <ToastContainer />
