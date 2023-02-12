@@ -46,7 +46,6 @@ function Signin() {
         email: formValues.email,
         password: formValues.password,
       });
-      console.log(result.data);
       if (result) {
         addUser({ email: result.data.email, _id: result.data._id });
         nav("/");

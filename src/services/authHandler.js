@@ -21,10 +21,15 @@ export const signin = async (d) => {
   const { email, password } = d;
   // console.log(email, password);
   try {
-    const response = await axios.post("/signin", {
-      email: email,
-      password: password,
-    });
+    const response = await axios.post(
+      "/signin",
+      {
+        email: email,
+        password: password,
+      },
+      { withCredentials: true }
+    );
+    // console.log(response.data);
     toast.success(response.data.msg);
     return response.data;
   } catch (error) {

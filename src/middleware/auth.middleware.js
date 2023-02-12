@@ -8,8 +8,8 @@ import SavedDataList from "../screens/SavedDataList";
 
 const authcheck = async () => {
   try {
+    console.log(axios.defaults.baseURL);
     const data = await axios.get("/home");
-    // console.log(data.data.success);
     return data;
   } catch (error) {
     // console.log("Catch Executed" + error.message);
