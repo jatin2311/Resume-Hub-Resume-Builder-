@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router";
 import { toast } from "react-toastify";
 import Footer from "../components/homeComponent/Footer";
 import { useUserStore } from "../store/user.store";
 
 const BuildResumeForm = () => {
+  const nav = useNavigate();
   const date = new Date();
   const formdata = {
     name: "",
@@ -64,7 +66,7 @@ const BuildResumeForm = () => {
       return toast.error("Log in required");
     }
     const data = localStorage.getItem(user.email);
-    console.log(user);
+    // console.log(user);
     try {
       if (data === null) {
         localStorage.setItem(user.email, JSON.stringify([formDataState]));
@@ -75,6 +77,7 @@ const BuildResumeForm = () => {
           JSON.stringify([formDataState, ...JSON.parse(data)])
         );
         toast.success("Form data saved successfully");
+        nav("/auth/data");
       }
     } catch (error) {
       console.log(error);

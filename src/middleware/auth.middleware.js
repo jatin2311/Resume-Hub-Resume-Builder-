@@ -1,81 +1,71 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router";
-import BuildResumeForm from "../screens/BuildResumeForm";
-import HomeScreen from "../screens/HomeScreen";
-import ResumePreviewScreen from "../screens/ResumePreviewScreen";
-import SavedDataList from "../screens/SavedDataList";
-
-const authcheck = async () => {
-  try {
-    const data = await axios.get("/home");
-    // console.log(data.data.success);
-    return data;
-  } catch (error) {
-    // console.log("Catch Executed" + error.message);
-    return false;
-  }
-};
-
-export const AuthChecker = (props) => {
+import { Outlet, useNavigate } from "react-router";
+import Lottie from "lottie-react";
+import animationData from "../assets/pageLoading.json";
+export const AuthChecker = () => {
   const nav = useNavigate();
-  const [data, setData] = useState("");
-  const location = useLocation();
+  const [data, setData] = useState(3);
   useEffect(() => {
     (async () => {
-      setData(await authcheck());
+      try {
+        const data = await axios.get("/home", { withCredentials: true });
+        setData(2);
+        console.log(data.data.success);
+      } catch (error) {
+        setData(1);
+      }
     })();
-    console.log(location.pathname);
-
     // eslint-disable-next-line
   }, []);
 
-  if (data === "") {
-    <>
-      <h1 className="min-h-screen min-w-full bg-[#e7e5e4] flex justify-center items-center flex-col gap-20 text-white">
-        <div className="min-h-[300px] bg-[#e7e5e4] w-72 mx-auto flex justify-center items-center animate-bounce ">
-          <div
-            className="animate-bounce  h-52 bg-[#2827CC] w-52 flex items-center justify-center rounded-full"
-            onClick={() => {
-              nav("/", { replace: true });
-            }}
-          >
-            Loading
-          </div>
-        </div>
-      </h1>
-    </>;
-  }
-
-  if (!data) {
-    return (
-      <>
-        <div className="min-h-screen min-w-full bg-[#e7e5e4] flex justify-center items-center flex-col gap-20 text-white">
-          <h1 className="text-black">Unauthorise Access not allowed</h1>
-          <div className="min-h-[300px] bg-[#e7e5e4] w-72 mx-auto flex justify-center items-center animate-bounce ">
-            <div
-              className="animate-bounce  h-52 bg-[#b4161b] w-52 flex items-center justify-center rounded-full text-center"
+  switch (data) {
+    case 1:
+      return (
+        <>
+          <div className="min-h-screen min-w-full bg-[#e7e5e4] flex justify-center items-center flex-col gap-20 text-white">
+            <h1 className="text-black">Sign in require</h1>
+            <button
+              className="text-black border border-[#4f46e5] px-[80px] py-[10px] bg-[#9b95f5] rounded text-2xl"
               onClick={() => {
                 nav("/", { replace: true });
               }}
             >
-              Sign In required <br />
-              click me to go home
-            </div>
+              Home
+            </button>
           </div>
-        </div>
-      </>
-    );
-  }
+        </>
+      );
+    case 2:
+      return (
+        <>
+          <Outlet />
+        </>
+      );
+    case 3:
+      return (
+        <>
+          <div className="min-h-screen min-w-full bg-[#e7e5e4] flex justify-center items-center flex-col gap-20 text-white">
+            <Lottie
+              animationData={animationData}
+              loop={true}
+              className=" md:w-[500px]"
+            />
+          </div>
+        </>
+      );
 
-  switch (location.pathname) {
-    case "/auth/buildResumeForm":
-      return <BuildResumeForm />;
-    case "/auth/data":
-      return <SavedDataList />;
-    case "/auth/build":
-      return <ResumePreviewScreen />;
     default:
-      return <HomeScreen />;
+      return (
+        <>
+          <div className="min-h-screen min-w-full bg-[#e7e5e4] flex justify-center items-center flex-col gap-20 text-white">
+            <Lottie
+              animationData={animationData}
+              loop={true}
+              className=" md:w-[500px]"
+            />
+          </div>
+        </>
+      );
   }
 };

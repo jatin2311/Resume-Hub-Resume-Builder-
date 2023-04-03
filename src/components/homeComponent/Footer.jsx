@@ -22,7 +22,7 @@ const Footer = () => {
           <p className="font-medium text-stone-500 text-xl sm:text-2xl">
             Social
           </p>
-          <a href="https://github.com/jatin2311/Resume-Hub-Resume-Builder-">
+          <a href="https://github.com/mfaizk/Resume-Hub-Resume-Builder-">
             <FaGithub className="mt-4 sm:mt-6 w-8 sm:w-12" size={40} />
           </a>
         </div>

@@ -4,7 +4,9 @@ import { toast } from "react-toastify";
 import Image from "../assets/anime.jpg";
 import Footer from "../components/homeComponent/Footer";
 import { signup } from "../services/authHandler";
-
+import animationData from "../assets/loading.json";
+import Lottie from "lottie-react";
+import { useLoadingStore } from "../store/loading.store";
 const Signup = () => {
   const nav = useNavigate();
   const initialValue = { userName: "", email: "", password: "" };
@@ -12,6 +14,7 @@ const Signup = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [confPassError, setConfPassError] = useState("");
   const [formError, setFormError] = useState({});
+  const loading = useLoadingStore((state) => state.loading);
   // const [isSubmitted, setIsSubmitted] = useState(false);
 
   const checkValidation = (e) => {
@@ -29,7 +32,7 @@ const Signup = () => {
     setFormValues({
       ...formValues,
       [name]: value,
-      id: Math.ceil(Math.random() * 1000000000000000000),
+      id: Math.ceil(Math.random() * 10000000000000),
     });
   };
 
@@ -68,6 +71,7 @@ const Signup = () => {
       console.log(result);
       if (result) {
         toast.success("Now login");
+
         nav("/signin");
       }
     }
@@ -160,19 +164,25 @@ const Signup = () => {
               </div>
 
               <div className="flex justify-center items-center w-full h-24  px-8 gap-5 mt-2">
-                <button
-                  type="cancel"
-                  className="border bg-red-50/10 border-white/20 px-8 py-2 rounded-3xl  hover:uppercase hover:underline text-white font-semibold "
-                >
-                  Cancel
-                </button>
-                <button
-                  type="submit"
-                  name="submit"
-                  className="border bg-red-50/10 border-white/20 px-8 py-2 rounded-3xl hover:uppercase hover:underline text-white font-semibold"
-                >
-                  Save
-                </button>
+                {loading ? (
+                  <>
+                    <Lottie
+                      animationData={animationData}
+                      loop={true}
+                      className="w-36"
+                    />
+                  </>
+                ) : (
+                  <>
+                    <button
+                      type="submit"
+                      name="submit"
+                      className="border bg-red-50/10 border-white/20 px-8 py-2 rounded-3xl hover:uppercase hover:underline text-white font-semibold"
+                    >
+                      Save
+                    </button>
+                  </>
+                )}
               </div>
             </form>
           </div>

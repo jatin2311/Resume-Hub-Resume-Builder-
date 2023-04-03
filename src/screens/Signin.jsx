@@ -4,9 +4,12 @@ import Image from "../assets/anime.jpg";
 import Footer from "../components/homeComponent/Footer";
 import { signin } from "../services/authHandler";
 import { useUserStore } from "../store/user.store";
-
+import { useLoadingStore } from "../store/loading.store";
+import animationData from "../assets/loading.json";
+import Lottie from "lottie-react";
 function Signin() {
   const addUser = useUserStore((state) => state.addUser);
+  const loading = useLoadingStore((state) => state.loading);
   const nav = useNavigate();
   const initialValue = { email: "", password: "" };
   const [formValues, setFormValues] = useState(initialValue);
@@ -46,7 +49,6 @@ function Signin() {
         email: formValues.email,
         password: formValues.password,
       });
-      console.log(result.data);
       if (result) {
         addUser({ email: result.data.email, _id: result.data._id });
         nav("/");
@@ -109,19 +111,25 @@ function Signin() {
                 </p>
               </div>
               <div className="flex justify-center items-center w-full h-24  px-8 gap-5 ">
-                <button
-                  type="cancel"
-                  className="border bg-red-50/10 border-white/20 px-8 py-2 rounded-3xl  hover:uppercase hover:underline text-white font-semibold "
-                >
-                  Cancel
-                </button>
-                <button
-                  type="submit"
-                  name="submit"
-                  className="border bg-red-50/10 border-white/20 px-8 py-2 rounded-3xl hover:uppercase hover:underline text-white font-semibold"
-                >
-                  Log in
-                </button>
+                {loading ? (
+                  <>
+                    <Lottie
+                      animationData={animationData}
+                      loop={true}
+                      className="w-36"
+                    />
+                  </>
+                ) : (
+                  <>
+                    <button
+                      type="submit"
+                      name="submit"
+                      className="border bg-red-50/10 border-white/20 px-8 py-2 rounded-3xl hover:uppercase hover:underline text-white font-semibold"
+                    >
+                      Log in
+                    </button>
+                  </>
+                )}
               </div>
             </form>
           </div>

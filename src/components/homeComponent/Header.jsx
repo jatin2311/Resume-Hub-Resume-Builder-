@@ -4,11 +4,14 @@ import { MdClose } from "react-icons/md";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useUserStore } from "../../store/user.store";
-
+import { useLoadingStore } from "../../store/loading.store";
+import animationData from "../../assets/loading.json";
+import Lottie from "lottie-react";
 const Header = () => {
   const user = useUserStore((state) => state.user);
   const logOutUser = useUserStore((state) => state.logOutUser);
   const [toggleMenu, settoggleMenu] = useState(false);
+  const loading = useLoadingStore((state) => state.loading);
 
   const LoggedInMenu = () => (
     <>
@@ -94,16 +97,30 @@ const Header = () => {
       ) : (
         <></>
       )}
-      <Link
-        to="/"
-        className=" inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-[#EF5354] px-4 py-2 text-base font-medium text-white shadow-sm transition ease-in-out delay-150  hover:scale-110 hover:bg-[#B4161B] duration-300"
-        onClick={() => {
-          logOutUser();
-          settoggleMenu(false);
-        }}
-      >
-        Logout
-      </Link>
+      <>
+        {loading ? (
+          <>
+            <Lottie
+              animationData={animationData}
+              loop={true}
+              className="w-16"
+            />
+          </>
+        ) : (
+          <>
+            <Link
+              to="/"
+              className=" inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-[#EF5354] px-4 py-2 text-base font-medium text-white shadow-sm transition ease-in-out delay-150  hover:scale-110 hover:bg-[#B4161B] duration-300"
+              onClick={() => {
+                logOutUser();
+                settoggleMenu(false);
+              }}
+            >
+              Logout
+            </Link>
+          </>
+        )}
+      </>
     </>
   );
 

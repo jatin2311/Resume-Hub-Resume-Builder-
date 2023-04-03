@@ -18,7 +18,13 @@ export const Template3 = (props) => {
         {/* left-section-start */}
 
         <div className="bg-[#2978ab] w-[40%] p-7 text-white h-[29.7cm] absolute z-0">
-          <img src={require("../../assets/man.png")} alt="" className="" />
+          <img
+            src={
+              localStorage.getItem("image") || require("../../assets/man.png")
+            }
+            alt=""
+            className="rounded-full"
+          />
           {/* Name and designation start*/}
           <div className="mt-7">
             <h3 className="text-[30px]  min-w-fit">{data.name}</h3>
