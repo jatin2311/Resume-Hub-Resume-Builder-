@@ -18,9 +18,9 @@
 
 > # Blobs
 
-![](https://github.com/mfaizk/Resume-Hub-Resume-Builder-/blob/master/resumeBuilderBlobs/homePage.png)
-![](https://github.com/mfaizk/Resume-Hub-Resume-Builder-/blob/master/resumeBuilderBlobs/templates.png)
-![](https://github.com/mfaizk/Resume-Hub-Resume-Builder-/blob/master/resumeBuilderBlobs/3.png)
-![](https://github.com/jatin2311/Resume-Hub-Resume-Builder-/blob/master/resumeBuilderBlobs/4.png)
+![](https://github.com/jatin2311/Resume-Hub-Resume-Builder-/blob/main/client/resumeBuilderBlobs/homePage.png)
+![](https://github.com/jatin2311/Resume-Hub-Resume-Builder-/blob/main/client/resumeBuilderBlobs/templates.png)
+![](https://github.com/jatin2311/Resume-Hub-Resume-Builder-/blob/main/client/resumeBuilderBlobs/3.png)
+![](https://github.com/jatin2311/Resume-Hub-Resume-Builder-/blob/main/client/resumeBuilderBlobs/4.png)
 
-![](https://github.com/mfaizk/Resume-Hub-Resume-Builder-/blob/master/resumeBuilderBlobs/templatePage.png)
+![](https://github.com/jatin2311/Resume-Hub-Resume-Builder-/blob/main/client/resumeBuilderBlobs/templatePage.png)
