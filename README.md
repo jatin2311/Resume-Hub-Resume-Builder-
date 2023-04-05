@@ -25,6 +25,3 @@
 
 > https://resumebuilderhub.netlify.app/
 
-> # Api Link
->
-> https://github.com/mfaizk/resumeApi
